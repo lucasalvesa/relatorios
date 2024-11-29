@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Livros cadastrados sem CDD e CDU" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ab3deb3-47ca-4acf-9b74-2741e463b9ae">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Livros cadastrados sem CDD" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ab3deb3-47ca-4acf-9b74-2741e463b9ae">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SGCI.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.report.description" value="Livros cadastrados sem CDD e CDU"/>
+	<property name="com.jaspersoft.studio.report.description" value="Livros cadastrados sem CDD"/>
 	<queryString>
 		<![CDATA[SELECT M.TITULO
 FROM LCL.V_MATERIAL_GERAL M
-WHERE CDU IS NULL AND
-      CDD IS NULL AND
+WHERE COALESCE(CDD, '') =  '' AND
       ID_TIPO_MATERIAL = 1
 ORDER BY TITULO]]>
 	</queryString>
@@ -33,7 +32,7 @@ ORDER BY TITULO]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[LIVROS CADASTRADOS SEM CDD E CDU]]></text>
+				<text><![CDATA[LIVROS CADASTRADOS SEM CDD]]></text>
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="130" height="50" uuid="b8cd1620-2b6a-4c47-8a0e-22d20096f4ef"/>

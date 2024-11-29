@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Lista de material por filial ordenado por CDU" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ab3deb3-47ca-4acf-9b74-2741e463b9ae">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Lista de material por filial ordenado por CDD" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ab3deb3-47ca-4acf-9b74-2741e463b9ae">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SGCI.xml"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.report.description" value="Lista de material por filial ordenado por CDU"/>
+	<property name="com.jaspersoft.studio.report.description" value="Lista de material por filial ordenado por CDD"/>
 	<parameter name="FILIAL" class="java.lang.String">
 		<parameterDescription><![CDATA[Filial (sigla)]]></parameterDescription>
 	</parameter>
-	<parameter name="CDU_INICIAL" class="java.lang.String">
-		<parameterDescription><![CDATA[Entre com a CDU inicial]]></parameterDescription>
+	<parameter name="CDD_INICIAL" class="java.lang.String">
+		<parameterDescription><![CDATA[Entre com o CDD inicial]]></parameterDescription>
 	</parameter>
-	<parameter name="CDU_FINAL" class="java.lang.String">
-		<parameterDescription><![CDATA[Entre com a CDU final]]></parameterDescription>
+	<parameter name="CDD_FINAL" class="java.lang.String">
+		<parameterDescription><![CDATA[Entre com o CDD final]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT E.UNIDADE, M.CDU, V.TITULO_MATERIAL, V.AUTOR, E.ID EXEMPLAR
+		<![CDATA[SELECT E.UNIDADE, M.CDD, V.TITULO_MATERIAL, V.AUTOR, E.ID EXEMPLAR
 FROM LCL.V_SGCI_EXEMPLAR E
      INNER JOIN LCL.V_MATERIAL_GERAL M ON
                 M.ID = E.ID_MATERIAL
@@ -24,15 +24,15 @@ FROM LCL.V_SGCI_EXEMPLAR E
      INNER JOIN LCL.AUTOR A ON
                 A.ID = V.ID_AUTOR
 WHERE E.UNIDADE LIKE $P{FILIAL} AND
-      M.CDU BETWEEN $P{CDU_INICIAL} AND $P{CDU_FINAL} AND
+      M.CDD BETWEEN $P{CDD_INICIAL} AND $P{CDD_FINAL} AND
       E.DATA_HORA_BAIXA IS NULL
-ORDER BY E.UNIDADE, M.CDU, M.TITULO]]>
+ORDER BY E.UNIDADE, M.CDD, M.TITULO]]>
 	</queryString>
 	<field name="UNIDADE" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="UNIDADE"/>
 	</field>
-	<field name="CDU" class="java.lang.String">
-		<property name="com.jaspersoft.studio.field.label" value="CDU"/>
+	<field name="CDD" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CDD"/>
 	</field>
 	<field name="TITULO_MATERIAL" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="TITULO_MATERIAL"/>
@@ -77,7 +77,7 @@ ORDER BY E.UNIDADE, M.CDU, M.TITULO]]>
 					<textElement>
 						<font size="7" isBold="true"/>
 					</textElement>
-					<text><![CDATA[CDU]]></text>
+					<text><![CDATA[CDD]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="40" y="16" width="340" height="10" uuid="88d86887-c0c3-4c18-a317-d10f835cfed5">
@@ -175,7 +175,7 @@ ORDER BY E.UNIDADE, M.CDU, M.TITULO]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[LISTA DE MATERIAL POR FILIAL ORDENADO POR CDU]]></text>
+				<text><![CDATA[LISTA DE MATERIAL POR FILIAL ORDENADO POR CDD]]></text>
 			</staticText>
 			<image>
 				<reportElement x="0" y="0" width="130" height="50" uuid="b8cd1620-2b6a-4c47-8a0e-22d20096f4ef"/>
@@ -193,7 +193,7 @@ ORDER BY E.UNIDADE, M.CDU, M.TITULO]]>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{CDU}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CDD}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="40" y="2" width="340" height="12" uuid="5651077f-d737-4b34-a53b-f54c0897e649">
