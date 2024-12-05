@@ -6,13 +6,7 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.report.description" value="Materiais cadastrados sem exemplar"/>
 	<queryString>
-		<![CDATA[SELECT COALESCE(NULLIF(TITULO_MATERIAL, ''), 'MATERIAL SEM TÍTULO REGISTRADO') TITULO_MATERIAL,
-       ID ID_MATERIAL
-FROM LCL.V_MATERIAL M
-WHERE NOT EXISTS (SELECT 1
-                  FROM LCL.EXEMPLAR E
-                  WHERE E.ID_MATERIAL = M.ID)
-ORDER BY TITULO_MATERIAL]]>
+		<![CDATA[SELECT * FROM REL.F_033() ORDER BY TITULO_MATERIAL]]>
 	</queryString>
 	<field name="TITULO_MATERIAL" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="TITULO_MATERIAL"/>
