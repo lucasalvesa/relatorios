@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Livros cadastrados sem CDD" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ab3deb3-47ca-4acf-9b74-2741e463b9ae">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SGCI.xml"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.report.description" value="Livros cadastrados sem CDD"/>
+	<queryString>
+		<![CDATA[SELECT * FROM REL.F_032() ORDER BY TITULO]]>
+	</queryString>
+	<field name="TITULO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TITULO"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="72" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<line>
+				<reportElement x="0" y="52" width="555" height="1" uuid="1df9a87a-63ec-4a86-91bc-55606b6aa086">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="132" y="10" width="350" height="30" uuid="2a7fc715-1cfb-4603-81eb-3717fe694698"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIVROS CADASTRADOS SEM CDD]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="130" height="50" uuid="b8cd1620-2b6a-4c47-8a0e-22d20096f4ef"/>
+				<imageExpression><![CDATA[new ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64("iVBORw0KGgoAAAANSUhEUgAAAG8AAAAyCAYAAABS1YVJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAPcUlEQVR4Xu2cCbRVUxjHdy+EjBkyk5Z5TBQhQlTmKSkyRaYorYhGSqUkDWRWWFTGokQoZIoiU8u0yqIMDUuzDB3f/7v7v993zz33vntfvQbr/tbaa+/97XPOO/fss/f+hn1epUhwwq+//up22GEHFFeZAw44wDVo0MANGTLES4pUBCU+dw8//LA74ogjfK18vPLKK65SpUru66+/dg888ICXFqkwMPLAb7/9hhEY1axZ00sKo1u3bno+Uu3atUN5zz33jJo3bx5NnDjRH1lkdRE6Dxx//PH6wDfeeGMvyY/OnTuHzpo2bZrKqlatGmRMU6dO1bYiq4e0zgPVqlULDzsfxowZE45fsWKFl6bz888/h2OQatSoET344IO+tUh50R7ae++9oylTpqgAHHLIIeFBlwWPW7hwoZeUct5550UtWrTQ8p9//hk9++yz0YUXXhjOqVOnjrYVKR/aO+3atdOHKUqGCsFJJ52kspKSEi/JhMeIsuMl6SxZsiQSJSj666+/vCQFOhHnoSOLlJ8wtPAwkdq3b+8lUVS3bl2V1apVy0tKQYegrUqVKl6SP/xb6zIffvihPovWrVt7SRSJFh116tQpOvvss71k7RKe4C+//BIeKkYigfIC2X333eclKXr37q3ywYMHe0luJk+eHD3//PPRxRdfrOf179/ft2Qyffr0qG3btlHTpk2jSy65JLrrrruixYsX+9Y1w4EHHqj3CR2AnH/++SpDWheQ+yi9ETwg3txDDz2ksgULFiTe8HHHHacytOfDsGHDwnXi14pjj7Ppm2++8UdUPEcffbT+zV122cVLoujyyy8P97IuULLHHnuoYS0Khdtss83cjz/+KPfm3FVXXeVES3Rbb721u/TSS4OMfP/995qjPR9kBOEXuwkTJmj9q6++0jyOmCua33DDDe7bb79177zzjmvZsqXKXnvtNc3LQmxW/T3rG3/88YfeexLwgC1dutTXPFbVX7RokfYopkLUK1eurHXAYwhNinzAlHzjjTfqGtKzZ089DyM3zqhRo7Rtp5128pIUdCDgXrMxb968aK+99tLjbLr33nu1HcoYZXEoP+uss7yk7JFn0x133KHtN998c5DFofymm27ykiiSF1TNJrYxkU8++STaaqutMtqxlF122WWpNc8a2WTbbbfV+mOPPab1hg0bav2ll17SOh9UPhx88MHh+jZZoAwkycG7776bKCfLli0L58bT008/rccMHTo0yP755x+VEZl5VH7OOed4SWGdd8stt2g7csriUG4VQspsOu2007Tto48+Smy3SX2bPXr0cHfeeSeKbsstt9RcRoHmckOac8oUNV/zQw89VPNZs2ZpnosRI0ZoLpopfpUTY15z8t5777n9999fy59//rnmltGjR6vvNRvy0H3JufHjx+u1mcQcUbmYPJoDLBMWttljymLlypVuzpw57qefftLnB+LXTSLpGFHOwv2+/PLLKjv22GM1B6JXhPYOHTp4qXFM33bbbdogU6euS4gKgLlz52p+yimnaI4HDfjA8nFA77fffvpQ0Wm4+Y022si3OHf99de7Y445RsuvvvqqO+igg7Q8f/58/SF///2369evn2vVqpXKk8C1AdZL3mdFg9+x4447OhmZbsMNN/TS8hE/X2YSJ6aYlnv16pWmV8hS5kum80Dfvn1dzZo13VNPPaX1ww47TPPvvvvObb755lrmSGvWrJnmosZrTgYOHOhLKdi5eKhvvvmmlvHDMbKRiwmisqlTp7pGjRpp+aijjnIybTuZptzy5ctVlg8cvesbGMUWPG8iJosvpcDoIxnzxKeffupmzpypZbxVgG9BnG7duml+5JFHag7eeOMNJ4usrzk3ZcqUMFWccMIJbtq0aVq+4IILNG/SpIneEF4UjDYcKwayTuMY9VtssYUelw/8O+s7sib7Um4yOg8jjJ3Ct75q1aqax+nevbuuY7K4OtFQVSZGuFu4cGF4Y1AHfBFq1aqlLwjAejR27Fgtiw2now2g8zCNF0quzrNvbEV1sv0bq0Ku9dmS0XngxBNP1Jy2GGxBsskmm2iOhw7lgvYU7DIM/6ZNm7pTTz1Vz23Xrp2unbDxZs+eHToSys5uu+3mnnnmGa1//PHHbt9999Uy7Jm6detquVBwbjbsWlHIVGyJT29xNthgA19aNbbZZhtfyv2bEjuPQJsiVFRE7dccnXPmmWdqmUoNDXBE1Js3b+7ExtL6sGHDnNh5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".getBytes()))]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="53" width="100" height="19" uuid="781eb467-9873-4d71-9fff-6e956aafc852">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TÍTULO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="71" width="555" height="1" uuid="298ae81a-18a5-4beb-8088-266c10c5245c">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="555" height="10" uuid="eb1d74c7-5e9f-4576-9375-de04fbd8f78f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TITULO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="9c544d65-8cb0-44a4-aa1d-238af05645cc">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="420" y="5" width="100" height="13" uuid="d4bf2663-d384-4193-854d-b1f17cb81918"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="520" y="5" width="40" height="13" uuid="fefd3894-6826-4f13-ad47-2b9b36116a23"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement key="" x="102" y="5" width="100" height="13" uuid="3dbca238-ebd3-4d23-8ab7-f95eab09b4ad"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="5" width="98" height="13" uuid="3416af7b-50d4-412e-bd73-0a41a9cc9b86"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Data/horário impressão:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
