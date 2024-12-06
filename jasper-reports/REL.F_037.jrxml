@@ -15,17 +15,8 @@
 		<parameterDescription><![CDATA[Entre com o CDD final]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT E.UNIDADE, M.CDD, V.TITULO_MATERIAL, V.AUTOR, E.ID EXEMPLAR
-FROM LCL.V_SGCI_EXEMPLAR E
-     INNER JOIN LCL.V_MATERIAL_GERAL M ON
-                M.ID = E.ID_MATERIAL
-     INNER JOIN LCL.V_MATERIAL V ON
-                V.ID = M.ID
-     INNER JOIN LCL.AUTOR A ON
-                A.ID = V.ID_AUTOR
-WHERE E.UNIDADE LIKE $P{FILIAL} AND
-      M.CDD BETWEEN $P{CDD_INICIAL} AND $P{CDD_FINAL} AND
-      E.DATA_HORA_BAIXA IS NULL
+		<![CDATA[SELECT *
+FROM REL.F_037($P{FILIAL},$P{CDD_INICIAL},$P{CDD_FINAL})
 ORDER BY E.UNIDADE, M.CDD, M.TITULO]]>
 	</queryString>
 	<field name="UNIDADE" class="java.lang.String">
