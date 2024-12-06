@@ -7,7 +7,7 @@
 	<property name="com.jaspersoft.studio.report.description" value="Exemplares em trânsito"/>
 	<queryString>
 		<![CDATA[SELECT * FROM REL.F_031()
-ORDER BY UNIDADE_ORIGEM, T.DATA_HORA_ORIGEM]]>
+ORDER BY UNIDADE_ORIGEM, DATA_HORA_ORIGEM]]>
 	</queryString>
 	<field name="CODIGO_BARRA" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="CODIGO_BARRA"/>
