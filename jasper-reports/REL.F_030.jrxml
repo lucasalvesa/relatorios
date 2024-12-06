@@ -12,7 +12,7 @@
 		<parameterDescription><![CDATA[Quantidade de alunos por turma]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT * FROM REL.F_030($P{PERIODO_LETIVO}, $P{QUANTIDADE_ALUNOS })]]>
+		<![CDATA[SELECT * FROM REL.F_030($P{PERIODO_LETIVO},$P{QUANTIDADE_ALUNOS })]]>
 	</queryString>
 	<field name="FILIAL" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="FILIAL"/>

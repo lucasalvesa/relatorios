@@ -53,32 +53,8 @@
 		<parameterDescription><![CDATA[DVD ROM]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT T.TIPO TIPO_MATERIAL, U.SIGLA UNIDADE, V.TITULO_MATERIAL, E.CODIGO_BARRA, M.ID CODIGO_MATERIAL
-FROM LCL.EXEMPLAR E
-     INNER JOIN LCL.MATERIAL M ON
-                M.ID = E.ID_MATERIAL
-     INNER JOIN LCL.TIPO_MATERIAL T ON
-                T.ID = M.ID_TIPO_MATERIAL
-     INNER JOIN LCL.UNIDADE U ON
-                U.ID = E.ID_UNIDADE
-     INNER JOIN LCL.V_MATERIAL V ON
-                V.ID = M.ID
-WHERE U.SIGLA LIKE $P{FILIAL} AND
-      E.ESTADO <> 'BAIXADO' AND
-      M.ID_TIPO_MATERIAL IN ( CASE WHEN $P{T1} = 1 THEN 1 ELSE 0 END,
-                              CASE WHEN $P{T2} = 1 THEN 2 ELSE 0 END,
-                              CASE WHEN $P{T3} = 1 THEN 3 ELSE 0 END,
-                              CASE WHEN $P{T4} = 1 THEN 4 ELSE 0 END,
-                              CASE WHEN $P{T5} = 1 THEN 5 ELSE 0 END,
-                              CASE WHEN $P{T6} = 1 THEN 6 ELSE 0 END,
-                              CASE WHEN $P{T7} = 1 THEN 7 ELSE 0 END,
-                              CASE WHEN $P{T8} = 1 THEN 8 ELSE 0 END,
-                              CASE WHEN $P{T9} = 1 THEN 9 ELSE 0 END,
-                              CASE WHEN $P{T10} = 1 THEN 10 ELSE 0 END,
-                              CASE WHEN $P{T11} = 1 THEN 11 ELSE 0 END,
-                              CASE WHEN $P{T12} = 1 THEN 12 ELSE 0 END,
-                              CASE WHEN $P{T13} = 1 THEN 13 ELSE 0 END,
-                              CASE WHEN $P{T14} = 1 THEN 14 ELSE 0 END )
+		<![CDATA[SELECT *
+ FROM REL.F_036($P{FILIAL},$P{T1},$P{T2},$P{T3},$P{T4},$P{T5},$P{T6},$P{T7},$P{T8},$P{T9},$P{T10},$P{T11},$P{T12},$P{T13},$P{T14})
 ORDER BY TIPO_MATERIAL, UNIDADE, TITULO_MATERIAL]]>
 	</queryString>
 	<field name="TIPO_MATERIAL" class="java.lang.String">
