@@ -6,15 +6,7 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.report.description" value="Livros sem autor"/>
 	<queryString>
-		<![CDATA[SELECT E.CODIGO_BARRA,
-       E.UNIDADE,
-       COALESCE(NULLIF (M.TITULO_MATERIAL, ''), 'MATERIAL SEM TÍTULO REGISTRADO') TITULO 
-FROM LCL.V_SGCI_EXEMPLAR E
-     INNER JOIN LCL.V_MATERIAL M ON
-                M.ID = E.ID_MATERIAL
-WHERE COALESCE(M.AUTOR, '') = '' AND
-      M.TIPO_MATERIAL = 'BOOKS'
-ORDER BY M.AUTOR, E.TITULO]]>
+		<![CDATA[SELECT * FROM REL.F_035() ORDER BY AUTOR, TITULO]]>
 	</queryString>
 	<field name="CODIGO_BARRA" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="CODIGO_BARRA"/>
