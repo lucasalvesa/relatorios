@@ -6,15 +6,7 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.report.description" value="Total de material por filial"/>
 	<queryString>
-		<![CDATA[SELECT U.SIGLA,
-       COUNT(ID_UNIDADE) TOTAL_DE_EXEMPLARES,
-       SUM(CASE WHEN E.ESTADO = 'BAIXADO' THEN 1 ELSE 0 END) EXEMPLARES_BAIXADOS,
-       SUM(CASE WHEN E.ESTADO <> 'BAIXADO' THEN 1 ELSE 0 END) EXEMPLARES_ATIVOS
-FROM LCL.EXEMPLAR E
-     INNER JOIN LCL.UNIDADE U ON
-                U.ID = E.ID_UNIDADE
-GROUP BY U.SIGLA
-ORDER BY U.SIGLA]]>
+		<![CDATA[SELECT * FROM REL.F_034() ORDER BY SIGLA]]>
 	</queryString>
 	<field name="SIGLA" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="SIGLA"/>
