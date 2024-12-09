@@ -15,19 +15,9 @@
 		<parameterDescription><![CDATA[Nome do autor]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT M.TITULO_MATERIAL, M.AUTOR, C.CDD, C.CDU, E.CODIGO_BARRA, U.SIGLA UNIDADE
-FROM LCL.EXEMPLAR E
-     INNER JOIN LCL.V_MATERIAL M ON
-                M.ID = E.ID_MATERIAL
-     INNER JOIN LCL.MATERIAL_GERAL C ON
-                C.ID = E.ID_MATERIAL
-     INNER JOIN LCL.UNIDADE U ON
-                U.ID = E.ID_UNIDADE
-WHERE U.SIGLA LIKE $P{FILIAL} AND
-      C.CDD LIKE $P{CDD} AND
-      M.AUTOR LIKE $P{AUTOR} AND
-      E.DATA_HORA_BAIXA IS NULL
-ORDER BY UNIDADE, C.CDD, M.TITULO_MATERIAL]]>
+		<![CDATA[SELECT *
+FROM REL.F_044($P{FILIAL},$P{CDD}, $P{AUTOR})
+ORDER BY UNIDADE, CDD, TITULO_MATERIAL]]>
 	</queryString>
 	<field name="TITULO_MATERIAL" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="TITULO_MATERIAL"/>
