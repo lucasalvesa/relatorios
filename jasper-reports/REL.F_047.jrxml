@@ -15,26 +15,9 @@
 		<parameterDescription><![CDATA[Informe a data final]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT V.UNIDADE,
-       B.BAIXA MOTIVO_BAIXA,
-       COALESCE(NULLIF(M.TITULO_MATERIAL, ''), 'SEM TÍTULO REGISTRADO') TITULO_MATERIAL,
-       COALESCE (A.NOME, 'SEM AUTOR REGISTRADO') AUTOR,
-       E.DATA_HORA_BAIXA,
-       M.ID ID_MATERIAL,
-       E.CODIGO_BARRA EXEMPLAR
-FROM LCL.EXEMPLAR E
-     LEFT JOIN LCL.V_SGCI_EXEMPLAR V ON
-                V.ID = E.ID
-     LEFT JOIN LCL.BAIXA_EXEMPLAR B ON
-                B.ID = E.ID_BAIXA_EXEMPLAR
-     LEFT JOIN LCL.V_MATERIAL M ON
-                M.ID = E.ID_MATERIAL
-     LEFT JOIN LCL.AUTOR A ON
-                A.ID = M.ID_AUTOR
-WHERE B.BAIXA IS NOT NULL AND
-      V.UNIDADE LIKE $P{FILIAL} AND
-      E.DATA_HORA_BAIXA BETWEEN $P{DATA_INICIAL} AND $P{DATA_FINAL}
-ORDER BY UNIDADE, A.NOME, M.TITULO_MATERIAL]]>
+		<![CDATA[SELECT *
+FROM REL.F_047($P{FILIAL},$P{DATA_INICIAL},$P{DATA_FINAL})
+ORDER BY UNIDADE, AUTOR, TITULO_MATERIAL]]>
 	</queryString>
 	<field name="UNIDADE" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="UNIDADE"/>
