@@ -31,7 +31,7 @@ BEGIN
                   U.ID = E.ID_UNIDADE
        INNER JOIN LCL.V_MATERIAL V ON
                   V.ID = M.ID
-  WHERE U.SIGLA LIKE @FILIAL AND
+  WHERE U.SIGLA LIKE '%' + @FILIAL + '%' AND
         E.ESTADO <> 'BAIXADO' AND
         M.ID_TIPO_MATERIAL IN ( CASE WHEN @T1 = 1 THEN 1 ELSE 0 END,
                                 CASE WHEN @T2 = 1 THEN 2 ELSE 0 END,

@@ -18,9 +18,9 @@ BEGIN
                   C.ID = E.ID_MATERIAL
        INNER JOIN LCL.UNIDADE U ON
                   U.ID = E.ID_UNIDADE
-  WHERE U.SIGLA LIKE @FILIAL AND
-        C.CDD LIKE @CDD AND
-        M.AUTOR LIKE @AUTOR AND
+  WHERE U.SIGLA LIKE '%' + @FILIAL + '%' AND
+        C.CDD LIKE '%' + @CDD + '%' AND
+        M.AUTOR LIKE '%' + @AUTOR + '%' AND
         E.DATA_HORA_BAIXA IS NULL
   
   RETURN

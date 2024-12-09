@@ -1,6 +1,6 @@
 ALTER FUNCTION REL.F_039( @DATA_INICIAL DATETIME2,
-                           @DATA_FINAL DATETIME2,
-                           @FILIAL VARCHAR(8) )
+                          @DATA_FINAL DATETIME2,
+                          @FILIAL VARCHAR(8) )
 RETURNS @RETORNO TABLE( FILIAL VARCHAR(8),
                         DATA_HORA_EMPRESTIMO datetime2,
                         CODIGO_BARRA BIGINT,
@@ -32,7 +32,7 @@ BEGIN
        INNER JOIN LCL.V_MATERIAL M ON
                   M.ID = E.ID_MATERIAL
   WHERE I.DATA_HORA_EMPRESTIMO BETWEEN @DATA_INICIAL AND @DATA_FINAL AND
-        COALESCE(U.FILIAL, '') LIKE @FILIAL
+        COALESCE(U.FILIAL, '') LIKE '%' + @FILIAL + '%'
 
   RETURN
 

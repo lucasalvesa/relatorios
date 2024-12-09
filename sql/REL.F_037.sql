@@ -1,6 +1,6 @@
 ALTER FUNCTION REL.F_037( @FILIAL VARCHAR(16),
-                           @CDD_INICIAL VARCHAR(32),
-                           @CDD_FINAL VARCHAR(32) )
+                          @CDD_INICIAL VARCHAR(32),
+                          @CDD_FINAL VARCHAR(32) )
 RETURNS @RETORNO TABLE( UNIDADE VARCHAR(16),
                         CDD VARCHAR(32),
                         TITULO_MATERIAL VARCHAR(256),
@@ -17,7 +17,7 @@ BEGIN
                   V.ID = M.ID
        INNER JOIN LCL.AUTOR A ON
                   A.ID = V.ID_AUTOR
-  WHERE E.UNIDADE LIKE @FILIAL AND
+  WHERE E.UNIDADE LIKE '%' + @FILIAL + '%' AND
         M.CDD BETWEEN @CDD_INICIAL AND @CDD_FINAL AND
         E.DATA_HORA_BAIXA IS NULL
 

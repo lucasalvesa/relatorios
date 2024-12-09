@@ -9,12 +9,9 @@
 		<parameterDescription><![CDATA[Autor (%)]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT COALESCE(M.AUTOR, 'SEM_AUTOR') AUTOR, A.IDENTIFICACAO, M.TITULO_MATERIAL, M.ID CODIGO_MATERIAL, M.EDITORA
-FROM LCL.V_MATERIAL M
-     LEFT JOIN LCL.AUTOR A ON A.ID = M.ID_AUTOR
-WHERE TIPO_MATERIAL <> 'PERIODICOS' AND
-      COALESCE(A.NOME, '') LIKE  $P{AUTOR} + '%' 
-ORDER BY M.AUTOR, TITULO_MATERIAL]]>
+		<![CDATA[SELECT *
+FROM REL.F_045($P{AUTOR})
+ORDER BY AUTOR, TITULO_MATERIAL]]>
 	</queryString>
 	<field name="AUTOR" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="AUTOR"/>

@@ -1,7 +1,7 @@
 ALTER FUNCTION REL.F_038( @FILIAL VARCHAR(16),
-                           @DATA_DEVOLUCAO_INI DATE,
-                           @DATA_DEVOLUCAO_FIM DATE,
-                           @CATEGORIA BIGINT )
+                          @DATA_DEVOLUCAO_INI DATE,
+                          @DATA_DEVOLUCAO_FIM DATE,
+                          @CATEGORIA BIGINT )
 RETURNS @RETORNO TABLE( FILIAL VARCHAR(16),
                         CODIGO_BARRA BIGINT,
                         TITULO_MATERIAL VARCHAR(256),
@@ -21,10 +21,10 @@ BEGIN
                   E.ID = V.ID_EXEMPLAR
        INNER JOIN LCL.V_MATERIAL M ON
                   M.ID = E.ID_MATERIAL
-  WHERE U.FILIAL LIKE @FILIAL AND
+  WHERE U.FILIAL LIKE '%' + @FILIAL + '%' AND
         V.ESTADO IN ('EMPRESTADO', 'ATRASADO') AND
         V.DATA_DEVOLUCAO BETWEEN @DATA_DEVOLUCAO_INI AND @DATA_DEVOLUCAO_FIM AND
-        U.ID_CATEGORIA LIKE @CATEGORIA
+        U.ID_CATEGORIA LIKE '%' + @CATEGORIA + '%'
   
   RETURN
 
