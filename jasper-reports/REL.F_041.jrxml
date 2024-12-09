@@ -21,29 +21,10 @@
 		<parameterDescription><![CDATA[Entre com a categoria]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT U.ID ID_USUARIO,
-       U.NOME,
-       U.MATRICULA,
-       E.CODIGO_BARRA,
-       M.TITULO_MATERIAL,
-       I.DATA_DEVOLUCAO,
-       E.UNIDADE FILIAL_EXEMPLAR,
-       U.FILIAL FILIAL_USUARIO
-FROM 
-    LCL.V_EMPRESTIMO I
-    INNER JOIN LCL.USUARIO U ON
-               U.ID = I.ID_USUARIO 
-    INNER JOIN LCL.V_SGCI_EXEMPLAR E ON
-               E.ID = I.ID_EXEMPLAR
-    INNER JOIN LCL.V_MATERIAL M ON
-               M.ID = E.ID_MATERIAL
-WHERE U.FILIAL LIKE $P{FILIAL}  AND
-      I.DATA_DEVOLUCAO < $P{DATA_REFERENCIA} AND
-      DATEPART(YEAR, I.DATA_DEVOLUCAO) = $P{ANO_REFERENCIA} AND
-      I.DEVOLUCAO_DATA_HORA IS NULL AND
-      U.NOME LIKE $P{NOME} + '%'  AND
-      U.ID_CATEGORIA LIKE $P{CATEGORIA}
-ORDER BY FILIAL_USUARIO, U.NOME, I.DATA_HORA]]>
+		<![CDATA[SELECT *
+FROM	
+	REL.F_041($P{FILIAL},$P{DATA_REFERENCIA},$P{ANO_REFERENCIA},$P{NOME},$P{CATEGORIA})
+ORDER BY FILIAL_USUARIO, NOME]]>
 	</queryString>
 	<field name="ID_USUARIO" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="ID_USUARIO"/>
