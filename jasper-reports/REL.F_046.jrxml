@@ -9,13 +9,9 @@
 		<parameterDescription><![CDATA[Digite a chave de pesquisa]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT P.PALAVRA_CHAVE, COUNT(*) QUANTIDADE
-FROM LCL.PALAVRA_CHAVE P
-     INNER JOIN LCL.MATERIAL_X_PALAVRA_CHAVE M ON
-                M.ID_PALAVRA_CHAVE = P.ID
-WHERE P.PALAVRA_CHAVE LIKE '%' + $P{CHAVE_PESQUISA} + '%' 
-GROUP BY P.PALAVRA_CHAVE
-ORDER BY P.PALAVRA_CHAVE]]>
+		<![CDATA[SELECT *
+FROM REL.F_046($P{CHAVE_PESQUISA})
+ORDER BY PALAVRA_CHAVE]]>
 	</queryString>
 	<field name="PALAVRA_CHAVE" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="PALAVRA_CHAVE"/>
