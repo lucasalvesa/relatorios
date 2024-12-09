@@ -15,24 +15,12 @@
 		<parameterDescription><![CDATA[Informe o tipo do material (id ou %)]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT M.TITULO_MATERIAL, M.TIPO_MATERIAL, COUNT (*) VEZES_EMPRESTADAS 
-FROM LCL.V_EMPRESTIMO I
-     INNER JOIN LCL.EXEMPLAR E ON
-                E.ID = I.ID_EXEMPLAR
-     INNER JOIN LCL.V_MATERIAL M ON
-                M.ID = E.ID_MATERIAL
-WHERE I.DATA_HORA >= $P{DATA_INICIAL} AND
-      I.DATA_HORA <= $P{DATA_FINAL} AND
-      M.ID_TIPO_MATERIAL LIKE $P{TIPO_MATERIAL}
-GROUP BY M.TITULO_MATERIAL, M.TIPO_MATERIAL 
-HAVING  COUNT (*) > 5
-ORDER BY M.TIPO_MATERIAL, VEZES_EMPRESTADAS DESC]]>
+		<![CDATA[SELECT *
+FROM REL.F_042($P{DATA_INICIAL},$P{DATA_FINAL},$P{TIPO_MATERIAL})
+ORDER BY TIPO_MATERIAL, VEZES_EMPRESTADAS DESC]]>
 	</queryString>
 	<field name="TITULO_MATERIAL" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="TITULO_MATERIAL"/>
-	</field>
-	<field name="ID_TIPO_MATERIAL" class="java.lang.Long">
-		<property name="com.jaspersoft.studio.field.label" value="ID_TIPO_MATERIAL"/>
 	</field>
 	<field name="TIPO_MATERIAL" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="TIPO_MATERIAL"/>
