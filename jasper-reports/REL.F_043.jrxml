@@ -12,14 +12,9 @@
 		<parameterDescription><![CDATA[Informe o autor]]></parameterDescription>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT M.AUTOR, M.TITULO_MATERIAL, E.UNIDADE, COUNT(1) TOTAL
-FROM LCL.V_MATERIAL M
-     INNER JOIN LCL.V_SGCI_EXEMPLAR E ON
-                E.ID_MATERIAL = M.ID
-WHERE E.UNIDADE LIKE $P{FILIAL} AND
-      M.AUTOR LIKE $P{AUTOR} + '%'
-GROUP BY M.AUTOR, M.TITULO_MATERIAL, E.UNIDADE
-ORDER BY M.AUTOR, M.TITULO_MATERIAL, E.UNIDADE]]>
+		<![CDATA[SELECT *
+FROM REL.F_043($P{FILIAL},$P{AUTOR})
+ORDER BY AUTOR, TITULO_MATERIAL, UNIDADE]]>
 	</queryString>
 	<field name="AUTOR" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="AUTOR"/>
