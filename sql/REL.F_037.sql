@@ -15,7 +15,7 @@ BEGIN
                   M.ID = E.ID_MATERIAL
        INNER JOIN LCL.V_MATERIAL V ON
                   V.ID = M.ID
-       INNER JOIN LCL.AUTOR A ON
+       INNER JOIN LCL.AUTOR A WITH(NOLOCK) ON
                   A.ID = V.ID_AUTOR
   WHERE E.UNIDADE LIKE '%' + @FILIAL + '%' AND
         M.CDD BETWEEN @CDD_INICIAL AND @CDD_FINAL AND
